@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = 24
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Javalin (framework web)
+    implementation 'io.javalin:javalin:5.6.2'
+
+    // MySQL Connector
+    implementation 'com.mysql:mysql-connector-j:8.0.33'
+
+    // Jackson (manejo de JSON)
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.2'
+
+    // SLF4J (logs)
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+
+    // ✅ JWT (para generar y validar tokens)
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5'
+
+    // Tests (opcional)
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+}
+
+application {
+    // Ajusta al nombre de tu clase Main
+    mainClass = 'com.mieleria.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
